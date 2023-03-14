@@ -4,26 +4,27 @@ import style from '@/components/navbar/styles/style.module.css'
 
 type LinkProps = {
     to: string,
-    child: ReactNode
+    children: ReactNode
 }
 
-type LinksProps = {
-    child: ReactNode
-}
-
-const CustomNavlink = ({to, child}:LinkProps) => {
+const CustomNavlink = ({to, children}:LinkProps) => {
     return (
         <li>
             <NavLink to={to} className={`${style.nav_link}`}>
-                {child}
+                {children}
             </NavLink>
         </li>
     );
 };
 
-export const NavLinks = ({child}: LinksProps) => {
+export const NavLinks = () => {
     return (
-        <ul className={style.nav_links}></ul>
+        <ul className={style.nav_links}>
+            <CustomNavlink to="/">Articles</CustomNavlink>
+            <CustomNavlink to="/most-popular">Most Popular</CustomNavlink>
+            <CustomNavlink to="/movie-reviews">Movie Reviews</CustomNavlink>
+            <CustomNavlink to="/top-stories">Top Stories</CustomNavlink>
+        </ul>
     )
 }
 

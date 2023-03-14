@@ -1,5 +1,7 @@
 import {Navbar} from "@/components/navbar/Navbar";
 import axios from "axios";
+import {AnimatedRoutes} from "@/routes/AnimatedRoutes";
+import {MotionContainer} from "@/components/motionContainer/MotionContainer";
 
 function App() {
 
@@ -9,9 +11,10 @@ function App() {
     axios.get(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${import.meta.env.API_KEY}`).then(data => console.log('top stories', data))
 
   return (
-    <div className="App">
+    <MotionContainer>
         <Navbar/>
-    </div>
+        <AnimatedRoutes/>
+    </MotionContainer>
   )
 }
 
