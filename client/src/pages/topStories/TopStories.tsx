@@ -1,6 +1,6 @@
 import {MotionContainer} from "@/components/motionContainer/MotionContainer";
 
-export const TopStories = () => {
+const TopStories = () => {
     return (
         <MotionContainer>
             <h1>TopStories</h1>
@@ -8,3 +8,5 @@ export const TopStories = () => {
 
     );
 };
+
+export default TopStories;

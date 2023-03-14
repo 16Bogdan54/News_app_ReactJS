@@ -1,6 +1,6 @@
 import {MotionContainer} from "@/components/motionContainer/MotionContainer";
 
-export const MovieReviews = () => {
+const MovieReviews = () => {
     return (
         <MotionContainer>
             <h1>MovieReviews</h1>
@@ -8,3 +8,5 @@ export const MovieReviews = () => {
 
     );
 };
+
+export default MovieReviews
