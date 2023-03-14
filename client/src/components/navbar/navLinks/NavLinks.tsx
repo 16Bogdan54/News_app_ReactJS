@@ -10,7 +10,7 @@ type LinkProps = {
 const CustomNavlink = ({to, children}:LinkProps) => {
     return (
         <li>
-            <NavLink to={to} className={`${style.nav_link}`}>
+            <NavLink to={to} className={`${({isActive}) => isActive ? "bg-blue-700" : "bg-white" } ${style.nav_link}`}>
                 {children}
             </NavLink>
         </li>
