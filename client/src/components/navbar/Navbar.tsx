@@ -12,12 +12,12 @@ export const Navbar = () => {
                 <div className="flex md:order-2">
                     <button type="button" className={`bg-blue-700 ${style.cta}`}>Login</button>
 
-                    <button data-collapse-toggle="navbar-cta" type="button" className={style.menu_btn}>
+                    <button data-collapse-toggle="navbar-sticky" type="button" className={style.menu_btn} aria-controls="navbar-sticky">
                         <AiOutlineMenu className="w-6 h-6"/>
                     </button>
 
                 </div>
-                <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+                <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                     <NavLinks/>
                 </div>
             </div>
