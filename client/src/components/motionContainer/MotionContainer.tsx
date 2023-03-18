@@ -9,7 +9,7 @@ type Props = {
 export const MotionContainer = ({children}:Props) => {
     return (
         <motion.div
-            className="mt-8 p-3 min-h-[95vh]"
+            className="container mt-10 p-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
