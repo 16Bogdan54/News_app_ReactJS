@@ -21,24 +21,26 @@ import {useDataFetch} from "@/hooks/useDataFetch";
                 {articles?.map((article) => (
 
                     <div
-                        className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        className="flex flex-col items-start  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {article.headline.main}
                             </h5>
                         </a>
-                        <ul className="flex flex-wrap items-center justify-start mb-6 text-gray-900 dark:text-white">
-                            {article.keywords.map((keyword, index) => {
-                                if(index === 5) {
-                                   return (
-                                       <li className="mr-2 md:mr-4">
-                                           #{keyword.value}
-                                       </li>
-                                   )
-                                }
-                            })}
-                        </ul>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{article.abstract}</p>
+                        {article.keywords &&
+                            <ul className="flex flex-wrap items-center justify-start mb-6 text-gray-900 dark:text-white">
+                                {article.keywords.map((keyword, index) => {
+                                    if(index === 5) {
+                                        return (
+                                            <li className="mr-2 md:mr-4">
+                                                #{keyword.value}
+                                            </li>
+                                        )
+                                    }
+                                })}
+                            </ul>
+                        }
+                        <p className="mb-3 grow font-normal text-gray-700 dark:text-gray-400">{article.abstract}</p>
                         <a href="#"
                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
