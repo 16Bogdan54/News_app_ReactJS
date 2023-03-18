@@ -31,6 +31,11 @@ export interface IArticle {
         original: string;
         person: IArticleBylinePerson[];
     };
+    keywords: IKeyword[]
+}
+
+export interface IKeyword {
+    value: string;
 }
 
 export interface IArticleMultimedia {

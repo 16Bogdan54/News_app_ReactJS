@@ -29,10 +29,10 @@ import {useDataFetch} from "@/hooks/useDataFetch";
                     </a>
                     <ul className="flex flex-wrap items-center justify-center mb-6 text-gray-900 dark:text-white">
                         {article.keywords.map((keyword) => (
-                            <li className="mr-4 hover:underline md:mr-6">
-                        {keyword.value}
+                            <li className="mr-4 md:mr-6">
+                                {keyword.value}
                             </li>
-                        )}
+                        ))}
                     </ul>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{article.abstract}</p>
                     <a href="#"
