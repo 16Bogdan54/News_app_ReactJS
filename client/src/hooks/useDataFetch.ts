@@ -1,21 +1,19 @@
 import {useQuery, UseQueryResult} from "@tanstack/react-query";
 import {getData} from "@/hooks/utils";
-import {data} from "autoprefixer";
-import axios from "axios";
 
 interface IResponse<T> {
     status: string;
-    response: T;
+    hookRes: T | undefined;
 }
 
 export const useDataFetch = <T>(url: string, queryKey: string):IResponse<T> => {
     const {
         status,
-        data: response
+        data: hookRes
     } = useQuery<T>({
         queryKey: [queryKey],
-        gueryFn: () => axios.get<T>(url)
+        queryFn: () => getData(url)
     })
 
-    return {status, response}
+    return {status, hookRes}
 }
