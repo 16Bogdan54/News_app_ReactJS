@@ -1,9 +1,11 @@
 import { MotionContainer } from "@/components/motionContainer/MotionContainer";
-import { IArticleSearchResponse, IArticleSearchResult } from "@/types/nytimes";
+import { IArticleSearchResponse } from "@/types/nytimes";
 import { useDataFetch } from "@/hooks/useDataFetch";
 import Error from "@/components/error/Error";
 import Loader from "@/components/loader/Loader";
 import Card from "@/components/card/Card";
+
+import style from "@/styles/stylesGlobal.module.css";
 
 const Articles = () => {
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -21,7 +23,7 @@ const Articles = () => {
 
   return (
     <MotionContainer>
-      <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 justify-items-center">
+      <div className={style.grid_container}>
         {articles?.map((article) => (
           <Card article={article} />
         ))}
