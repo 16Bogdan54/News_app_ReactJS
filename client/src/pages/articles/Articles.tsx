@@ -2,6 +2,7 @@ import {MotionContainer} from "@/components/motionContainer/MotionContainer";
 import {IArticleSearchResponse, IArticleSearchResult} from "@/types/nytimes";
 import {useDataFetch} from "@/hooks/useDataFetch";
 import Error from "@/components/error/Error";
+import Loader from "@/components/loader/Loader";
 
  const Articles = () => {
 
@@ -10,8 +11,8 @@ import Error from "@/components/error/Error";
 
      const {status, hookRes} = useDataFetch<IArticleSearchResponse>(URL, 'articles')
 
-     if(status === 'loading') return <span>Loading...</span>
-     if(status === 'error') return <span>Something went wrong</span>
+     if(status === 'loading') return <Loader/>
+     if(status === 'error') return <Error/>
 
      const articles = hookRes?.response.docs
 
