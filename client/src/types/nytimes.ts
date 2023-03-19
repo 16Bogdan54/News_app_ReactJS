@@ -61,7 +61,7 @@ export interface IMostPopularResponse {
   status: string;
   copyright: string;
   num_results: number;
-  results: [];
+  results: IMostPopularArticle[];
 }
 
 export interface IMostPopularArticle {
