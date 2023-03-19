@@ -1,4 +1,3 @@
-import React from 'react';
 import {MotionContainer} from "@/components/motionContainer/MotionContainer";
 
 const Error = () => {
