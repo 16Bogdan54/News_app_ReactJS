@@ -1,65 +1,33 @@
-import {MotionContainer} from "@/components/motionContainer/MotionContainer";
-import {IArticleSearchResponse, IArticleSearchResult} from "@/types/nytimes";
-import {useDataFetch} from "@/hooks/useDataFetch";
+import { MotionContainer } from "@/components/motionContainer/MotionContainer";
+import { IArticleSearchResponse, IArticleSearchResult } from "@/types/nytimes";
+import { useDataFetch } from "@/hooks/useDataFetch";
 import Error from "@/components/error/Error";
 import Loader from "@/components/loader/Loader";
+import Card from "@/components/card/Card";
 
- const Articles = () => {
+const Articles = () => {
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=${API_KEY}`;
 
-     const API_KEY = import.meta.env.VITE_API_KEY
-     const URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=${API_KEY}`
+  const { status, hookRes } = useDataFetch<IArticleSearchResponse>(
+    URL,
+    "articles"
+  );
 
-     const {status, hookRes} = useDataFetch<IArticleSearchResponse>(URL, 'articles')
+  if (status === "loading") return <Loader />;
+  if (status === "error") return <Error />;
 
-     if(status === 'loading') return <Loader/>
-     if(status === 'error') return <Error/>
+  const articles = hookRes?.response.docs;
 
-     const articles = hookRes?.response.docs
-
-     return (
-         <Error/>
-        // <MotionContainer>
-        //     <h1>Articles</h1>
-        //     <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 justify-items-center">
-        //         {articles?.map((article) => (
-        //
-        //             <div
-        //                 className="flex flex-col items-start  max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        //                 <a href="#">
-        //                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        //                         {article.headline.main}
-        //                     </h5>
-        //                 </a>
-        //                 {article.keywords &&
-        //                     <ul className="flex flex-wrap items-center justify-start mb-6 text-gray-900 dark:text-white">
-        //                         {article.keywords.map((keyword, index) => {
-        //                             if(index === 5) {
-        //                                 return (
-        //                                     <li className="mr-2 md:mr-4">
-        //                                         #{keyword.value}
-        //                                     </li>
-        //                                 )
-        //                             }
-        //                         })}
-        //                     </ul>
-        //                 }
-        //                 <p className="mb-3 grow font-normal text-gray-700 dark:text-gray-400">{article.abstract}</p>
-        //                 <a href="#"
-        //                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        //                     Read more
-        //                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-        //                          xmlns="http://www.w3.org/2000/svg">
-        //                         <path fill-rule="evenodd"
-        //                               d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-        //                               clip-rule="evenodd"></path>
-        //                     </svg>
-        //                 </a>
-        //             </div>
-        //         ))}
-        //     </div>
-        // </MotionContainer>
-
-    );
+  return (
+    <MotionContainer>
+      <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 justify-items-center">
+        {articles?.map((article) => (
+          <Card article={article} />
+        ))}
+      </div>
+    </MotionContainer>
+  );
 };
 
- export default Articles;
+export default Articles;
