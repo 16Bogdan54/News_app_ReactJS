@@ -70,7 +70,7 @@ export interface IMostPopularArticle {
   id: number;
   asset_id: number;
   source: string;
-  published_data: string;
+  published_date: string;
   updated: string;
   section: string;
   subsection: string;
