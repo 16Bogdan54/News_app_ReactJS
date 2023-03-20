@@ -94,7 +94,7 @@ export interface IMedia {
   caption: string;
   copyright: string;
   approved_for_syndication: number;
-  media_metadata: IMediaMetadata[];
+  "media-metadata": IMediaMetadata[];
 }
 
 export interface IMediaMetadata {
