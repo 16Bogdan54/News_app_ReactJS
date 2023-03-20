@@ -27,7 +27,6 @@ const MostPopular = () => {
 
   return (
     <MotionContainer>
-      <h1>MostPopular</h1>
       <div className={style.grid_container}>
         {mostPopular?.map((article, index) => (
           <MostPopularCard article={article} key={index} />
