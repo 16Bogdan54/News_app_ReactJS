@@ -105,34 +105,11 @@ export interface IMediaMetadata {
 }
 
 export interface IMovieReviewResponse {
-  data: {
-    status: string;
-    copyright: string;
-    has_more: boolean;
-    num_results: number;
-    results: IMovieReview[];
-  };
-  status: number;
-  statusText: string;
-  headers: {
-    "cache-control": string;
-    "content-type": string;
-  };
-  config: {
-    transitional: {
-      silentJSONParsing: boolean;
-      forcedJSONParsing: boolean;
-      clarifyTimeoutError: boolean;
-    };
-    adapter: string[];
-    transformRequest: [];
-    timeout: number;
-    xsrfCookieName: string;
-    xsrfHeaderName: string;
-    maxContentLength: number;
-    maxBodyLength: number;
-    env: {};
-  };
+  status: string;
+  copyright: string;
+  has_more: boolean;
+  num_results: number;
+  results: IMovieReview[];
 }
 
 export interface IMovieReview {
