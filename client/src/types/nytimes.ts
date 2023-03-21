@@ -103,3 +103,56 @@ export interface IMediaMetadata {
   height: number;
   width: number;
 }
+
+export interface IMovieReviewResponse {
+  data: {
+    status: string;
+    copyright: string;
+    has_more: boolean;
+    num_results: number;
+    results: IMovieReview[];
+  };
+  status: number;
+  statusText: string;
+  headers: {
+    "cache-control": string;
+    "content-type": string;
+  };
+  config: {
+    transitional: {
+      silentJSONParsing: boolean;
+      forcedJSONParsing: boolean;
+      clarifyTimeoutError: boolean;
+    };
+    adapter: string[];
+    transformRequest: [];
+    timeout: number;
+    xsrfCookieName: string;
+    xsrfHeaderName: string;
+    maxContentLength: number;
+    maxBodyLength: number;
+    env: {};
+  };
+}
+
+export interface IMovieReview {
+  display_title: string;
+  mpaa_rating: string;
+  critics_pick: number;
+  byline: boolean;
+  headline: string;
+  summary_short: string;
+  publication_date: string;
+  date_updated: string;
+  link: {
+    type: string;
+    url: string;
+    suggested_link_text: string;
+  };
+  multimedia: {
+    type: string;
+    src: string;
+    height: number;
+    weight: number;
+  };
+}

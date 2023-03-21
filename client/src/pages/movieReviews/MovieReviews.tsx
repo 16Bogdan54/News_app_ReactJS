@@ -48,7 +48,6 @@ export default MovieReviews;
 //                 "width": 210
 //             }
 //         }
-//         }
 //     ]
 // },
 //     "status": 200,
@@ -84,6 +83,5 @@ export default MovieReviews;
 //     },
 //     "method": "get",
 //         "url": "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=godfather&api-key=Q3hOcpgVhyEZxQzucxCRqlNBa59SRhxX"
-// },
-//     "request": {}
+// }
 // }
