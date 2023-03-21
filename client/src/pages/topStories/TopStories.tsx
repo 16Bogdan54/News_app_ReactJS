@@ -1,5 +1,4 @@
 import { MotionContainer } from "@/components/motionContainer/MotionContainer";
-import axios from "axios";
 import { useDataFetch } from "@/hooks/useDataFetch";
 import { ITopStoriesResponse } from "@/types/nytimes";
 import Loader from "@/components/loader/Loader";
