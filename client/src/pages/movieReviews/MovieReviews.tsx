@@ -21,8 +21,6 @@ const MovieReviews = () => {
 
   const reviews = hookRes?.results;
 
-  console.log(reviews);
-
   return (
     <MotionContainer>
       <div className={style.grid_container}>
