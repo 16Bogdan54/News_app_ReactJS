@@ -50,7 +50,7 @@ const updateAdmin = (req, res) => {
   res.json(data.admins);
 };
 
-const deleteEmployee = (req, res) => {
+const deleteAdmin = (req, res) => {
   const employee = data.admins.find((emp) => emp.id === parseInt(req.body.id));
 
   if (!employee) {
@@ -67,7 +67,7 @@ const deleteEmployee = (req, res) => {
   res.json(data.admins);
 };
 
-const getEmployee = (req, res) => {
+const getAdmin = (req, res) => {
   const employee = data.admins.find(
     (emp) => emp.id === parseInt(req.params.id)
   );
@@ -85,6 +85,6 @@ module.exports = {
   getAllAdmins,
   createNewAdmin,
   updateAdmin,
-  deleteEmployee,
-  getEmployee,
+  deleteAdmin,
+  getAdmin,
 };
