@@ -1,6 +1,6 @@
 import { allowedOrigins } from "./allowedOrigins";
 
-export const corsOptions: Object = {
+export const corsOptions = {
   origin: (origin: number, callback: Function) => {
     if (allowedOrigins.indexOf(String(origin)) !== -1 || !origin) {
       callback(null, true);
