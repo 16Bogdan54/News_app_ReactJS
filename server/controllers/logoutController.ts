@@ -3,12 +3,14 @@ import path from "path";
 
 const usersDB = {
   users: require("../models/user.json"),
-  setUsers: (data) => (this.users = data),
+  setUsers: function (data) {
+    this.users = data;
+  },
 };
 
 const fsPromises = fs.promises;
 
-const handleLogout = async (req, res) => {
+export const handleLogout = async (req, res) => {
   // On client, also delete the accessToken
 
   const cookies = req.cookies;
@@ -41,5 +43,3 @@ const handleLogout = async (req, res) => {
   res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
   res.sendStatus(204);
 };
-
-module.exports = { handleLogout };

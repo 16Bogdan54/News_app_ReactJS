@@ -10,5 +10,3 @@ export const corsOptions: Object = {
   },
   optionSuccessStatus: 200,
 };
-//
-// module.exports = corsOptions;

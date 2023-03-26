@@ -1,13 +1,15 @@
 const data = {
   admins: require("../models/admin.json"),
-  setAdmins: (data) => (this.admins = data),
+  setAdmins: function (data) {
+    this.admins = data;
+  },
 };
 
-const getAllAdmins = (req, res) => {
+export const getAllAdmins = (req, res) => {
   res.json(data.admins);
 };
 
-const createNewAdmin = (req, res) => {
+export const createNewAdmin = (req, res) => {
   const newEmployee = {
     id: data.admins?.length ? data.admins[data.admins.length - 1].id + 1 : 1,
     firstname: req.body.firstname,
@@ -50,7 +52,7 @@ const updateAdmin = (req, res) => {
   res.json(data.admins);
 };
 
-const deleteAdmin = (req, res) => {
+export const deleteAdmin = (req, res) => {
   const employee = data.admins.find((emp) => emp.id === parseInt(req.body.id));
 
   if (!employee) {
@@ -67,7 +69,7 @@ const deleteAdmin = (req, res) => {
   res.json(data.admins);
 };
 
-const getAdmin = (req, res) => {
+export const getAdmin = (req, res) => {
   const employee = data.admins.find(
     (emp) => emp.id === parseInt(req.params.id)
   );
@@ -79,12 +81,4 @@ const getAdmin = (req, res) => {
   }
 
   res.json(employee);
-};
-
-module.exports = {
-  getAllAdmins,
-  createNewAdmin,
-  updateAdmin,
-  deleteAdmin,
-  getAdmin,
 };

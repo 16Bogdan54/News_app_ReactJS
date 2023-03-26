@@ -10,10 +10,12 @@ const fsPromises = fs.promises;
 
 const userDB = {
   users: require("../models/user.json"),
-  setUsers: (data) => (this.users = data),
+  setUsers: function (data) {
+    this.admins = data;
+  },
 };
 
-const handleLogin = async (req, res) => {
+export const handleLogin = async (req, res) => {
   const { user, pwd } = req.body;
   if (!user || !pwd)
     return res
@@ -56,5 +58,3 @@ const handleLogin = async (req, res) => {
     res.sendStatus(401);
   }
 };
-
-module.exports = { handleLogin };
