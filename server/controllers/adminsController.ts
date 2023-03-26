@@ -26,7 +26,7 @@ export const createNewAdmin = (req, res) => {
   res.status(201).json(data.admins);
 };
 
-const updateAdmin = (req, res) => {
+export const updateAdmin = (req, res) => {
   const employee = data.admins.find((emp) => emp.id === parseInt(req.body.id));
 
   if (!employee) {
