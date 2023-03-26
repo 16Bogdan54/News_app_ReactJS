@@ -1,11 +1,9 @@
-import allowedOptions from "../config/allowedOrigins";
+import { allowedOrigins } from "server/config/allowedOrigins";
 
-const credentials = (req, res, next) => {
+export const credentials = (req, res, next) => {
   const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
+  if (allowedOrigins.indexOf(origin)) {
     res.header("Access-Control-Allow-Credentials", true);
   }
   next();
 };
-
-module.exports = credentials;
