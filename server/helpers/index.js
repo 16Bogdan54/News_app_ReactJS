@@ -1,6 +1,6 @@
-const sendEmail = require('./sendEmail');
+const sendEmail = require('./send_email');
 const token = require('./token');
-const verificationMessage = require('./verificationMessage')
+const verificationMessage = require('./verification_msg')
 
 module.exports = {
     sendEmail,
