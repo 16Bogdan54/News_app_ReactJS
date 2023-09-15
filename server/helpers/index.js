@@ -1,9 +1,13 @@
-const sendEmail = require('./send_email');
-const token = require('./token');
-const verificationMessage = require('./verification_msg')
+const mongooseErrorHandler = require("./mongooseErrorHandler");
+const {
+  generateAccessToken,
+  generateRefreshToken,
+} = require("./tokenGenerator");
+const calculateExpiresTime = require("./expiration");
 
 module.exports = {
-    sendEmail,
-    token,
-    verificationMessage
-}
+  mongooseErrorHandler,
+  generateAccessToken,
+  generateRefreshToken,
+  calculateExpiresTime,
+};
