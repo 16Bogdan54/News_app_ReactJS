@@ -156,6 +156,30 @@ class AuthController {
 
     res.status(200);
   }
+
+  static async updateUser(req, res, next) {
+    const { _id } = req.user;
+    const { username } = req.body;
+
+    const user = await User.findOne({
+      $or: [{ username }],
+      _id: { $ne: _id },
+    });
+
+    if (user) {
+      next(HttpError(409, "Username already in use"));
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(_id, req.body, {
+      new: true,
+    });
+
+    if (!updatedUser) {
+      throw new HttpError(404);
+    }
+
+    res.json(updatedUser);
+  }
 }
 
 module.exports = AuthController;

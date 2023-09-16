@@ -5,6 +5,8 @@ const logger = require("morgan");
 
 const { db, server } = require("./config/config");
 
+const authRouter = require("./routes/api/auth");
+
 const app = express();
 mongoose.connect(db.uri).catch((error) => console.error(error));
 
@@ -20,5 +22,7 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.use("/api/auth", authRouter);
 
 app.listen(server.port, () => console.log("running on port ", server.port));
