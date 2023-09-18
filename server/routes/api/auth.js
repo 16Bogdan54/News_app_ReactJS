@@ -1,24 +1,24 @@
 const express = require("express");
 const AuthController = require("../../controllers/auth_controller");
-const { validationBody, authenticate } = require("../../middlewares");
-const { userSchemas } = require("../../schemas/user");
+const { validateBody, authenticate } = require("../../middlewares");
+const userSchemas = require("../../schemas/user");
 const router = express.Router();
 
 router.post(
   "/signup",
-  validationBody(userSchemas.signupSchema),
+  validateBody(userSchemas.signupSchema),
   AuthController.registration
 );
 
 router.post(
   "/login",
-  validationBody(userSchemas.loginSchema),
+  validateBody(userSchemas.loginSchema),
   AuthController.login
 );
 
 router.post(
   "/token",
-  validationBody(userSchemas.refreshTokenSchema),
+  validateBody(userSchemas.refreshTokenSchema),
   AuthController.refresh
 );
 
@@ -27,7 +27,7 @@ router.get("/logout", authenticate, AuthController.logout);
 
 router.put(
   "/update",
-  validationBody(userSchemas.updateUserSchema),
+  validateBody(userSchemas.updateUserSchema),
   AuthController.updateUser
 );
 

@@ -30,7 +30,6 @@ export const NavLinks = () => {
     <ul className={style.nav_links}>
       <CustomNavlink to="/">Articles</CustomNavlink>
       <CustomNavlink to="/most-popular">Most Popular</CustomNavlink>
-      <CustomNavlink to="/movie-reviews">Movie Reviews</CustomNavlink>
       <CustomNavlink to="/top-stories">Top Stories</CustomNavlink>
     </ul>
   );

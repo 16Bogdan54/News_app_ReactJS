@@ -10,10 +10,14 @@ export const Navbar = () => {
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Logo />
         <div className="flex md:order-2">
-          <Link className={`bg-blue-700 ${style.cta}`} to="/login">
-            Login
-          </Link>
-
+          <div className="flex gap-2 items-center justify-center">
+            <Link className={`bg-blue-700 ${style.cta}`} to="/signup">
+              Sign Up
+            </Link>
+            <Link className={`bg-white ${style.alternative}`} to="/login">
+              Login
+            </Link>
+          </div>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
